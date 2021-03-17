@@ -62,7 +62,7 @@ Se tudo der certo deve retornar:
 O id do video devera ser salvo para baixar o video no seu dispositivo.
 
 ### /video/get/<id> -> GET
-Rota para fazer o download do video, o ID deve ser fornecido.
+Rota para fazer o download do video, o ID deve ser fornecido, o mesmo foi fornecido na rota /video/download.
 
 ### /video/delete/<id> -> DELETE
 Rota para deletar o video.
