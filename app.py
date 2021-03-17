@@ -7,6 +7,7 @@ except:
     depedencies = ["flask","pytube"]
     package_installer(depedencies)
 
+from fileNamer import file_namer
 
 app = Flask(__name__)
 
@@ -32,6 +33,23 @@ def get_info():
 		return jsonify({
 			"message":"error"
 		})
+
+@app.route("/video/download",methods=["POST"])
+def download_file():
+	try:
+		req = request.get_json()
+		yt = YouTube(req["link"])
+		ys = yt.streams.first()
+		file_name = file_namer(12)
+		ys.download(filename=file_name,output_path="./videos")
+
+		return jsonify({
+			"status":"Downloaded",
+			"video_id": file_name
+		})
+	except:
+		return jsonify({"status":"failed"})
+    
 
 
 if __name__ == "__main__":
