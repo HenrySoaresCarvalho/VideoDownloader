@@ -8,6 +8,7 @@ except:
     package_installer(depedencies)
 
 from fileNamer import file_namer
+import os
 
 app = Flask(__name__)
 
@@ -60,6 +61,6 @@ def delete_video(video_id):
 	return jsonify({
 		"message":"sucess"
 	})
-    
+
 if __name__ == "__main__":
     app.run(debug=True)
