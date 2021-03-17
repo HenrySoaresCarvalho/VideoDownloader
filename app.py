@@ -50,6 +50,9 @@ def download_file():
 	except:
 		return jsonify({"status":"failed"})
     
+@app.route("/video/get/<video_id>")
+def get_video(video_id):
+	return send_file(f"./videos/{video_id}.mp4")
 
 
 if __name__ == "__main__":
