@@ -54,6 +54,12 @@ def download_file():
 def get_video(video_id):
 	return send_file(f"./videos/{video_id}.mp4")
 
-
+@app.route("/video/delete/<video_id>", methods=["DELETE"])
+def delete_video(video_id):
+	os.remove(f"./videos/{video_id}.mp4")
+	return jsonify({
+		"message":"sucess"
+	})
+    
 if __name__ == "__main__":
     app.run(debug=True)
